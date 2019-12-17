@@ -1,0 +1,50 @@
+.Profile{
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    @media screen and (min-width: 768px) { 
+        width: 700px;
+    }
+    .AttackList{
+        display: flex;
+        flex-wrap: wrap;
+        .AttacksName{
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bold;
+        }
+        li{
+            box-sizing: border-box;
+            padding:15px;
+            margin: 1%;
+            width: 100%;
+            border-radius: 5px;
+            background-color: #f6f6f6;
+            
+
+            @media screen and (min-width: 430px) { 
+                margin: 1%;
+                width: 45%;
+            }
+
+            @media screen and (min-width: 768px) { 
+                margin: 1%;
+                width: 30%;
+            }
+
+
+            strong{
+                color: #555;
+            }
+            p{
+                margin: 0;
+            }
+            p+p{
+                font-size: 0.9em;
+                margin-top: 15px;
+            }
+        }
+    }
+}

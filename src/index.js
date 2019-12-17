@@ -10,7 +10,6 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import podekexReducer from "./store/reducers/podekexReducer";
 
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const store = createStore(podekexReducer, composeEnhancers(applyMiddleware(thunk)))
@@ -20,7 +19,7 @@ const app = (
             <App />
         </BrowserRouter>
     </Provider>
-    )
+)
 ReactDOM.render(app, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
