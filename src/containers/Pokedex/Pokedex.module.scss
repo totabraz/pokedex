@@ -117,11 +117,13 @@
 	tbody {
 		max-height: calc(100vh - 190px);
 		overflow-y: scroll;
+		overflow-x: hidden;
 		@media screen and (min-width: 768px) {
 			max-height: calc(100vh - 230px);
 		}
 		tr {
 			transition: 200ms;
+
 			&:hover {
 				background-color: $bgcRedHover;
 				.link {
@@ -146,9 +148,6 @@
 				}
 				&:last-of-type {
 					text-align: left;
-					@media screen and (min-width: 768px) {
-						padding-right: 15px;
-					}
 				}
 			}
 		}
