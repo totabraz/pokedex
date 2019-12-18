@@ -31,7 +31,6 @@
 			color: $white;
 			.btnInfoMobile {
 				color: $black;
-			
 			}
 		}
 	}
@@ -43,9 +42,9 @@
 		margin: 0 -15px;
 		border-radius: 5px;
 		overflow: hidden;
-		margin-bottom: 30px;
 		font-size: 14px;
 		@media screen and (min-width: 768px) {
+			margin-bottom: 30px;
 			font-size: 16px;
 			min-width: 700px;
 			width: 100%;
@@ -90,15 +89,20 @@
 		font-size: 0.9em;
 		th,
 		tr {
-			align-items: flex-start;}
+			align-items: flex-start;
+		}
 		th {
 			border-top: 2px solid $linkColor;
 		}
 	}
 
 	tbody {
-		max-height: calc(100vh - 230px);
+		max-height: calc(100vh - 190px);
 		overflow-y: scroll;
+		@media screen and (min-width: 768px) {
+			max-height: calc(100vh - 230px);
+		}
+
 		tr {
 			transition: 200ms;
 			&:hover {
