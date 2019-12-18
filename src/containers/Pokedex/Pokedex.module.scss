@@ -1,69 +1,84 @@
 @import "../../assets/sass/colors";
 
 .border {
-    border: 2px solid $borderColor;
-    padding: 5px 15px;
-    border-radius: 5px;
+	border: 2px solid $black;
+	padding: 5px 15px;
+	border-radius: 5px;
 }
 .Pokedex {
-    * {
-        box-sizing: border-box;
-    }
-    .searchInput {
-        border: 2px solid transparent;
-        padding: 5px 10px;
-        border-radius: 5px;
-    }
+	* {
+		box-sizing: border-box;
+	}
+	.searchInput {
+		border: 2px solid transparent;
+		padding: 5px 10px;
+		border-radius: 5px;
+		width: 100%;
+	}
 
-    .vermais {
-        @extend .border;
-        display: none;
-        text-decoration: none;
-        color: $linkColor;
-        &:focus,
-        &:active,
-        &:hover {
-            background-color: $linkColor;
-            color: $white;
-        }
-    }
-    table {
-        border: none;
-        min-width: 700px;
-        text-align: center;
-        margin: 0 auto;
-        border-radius: 5px;
-        overflow: hidden;
-    }
+	.link {
+		@extend .border;
+		display: none;
+		text-decoration: none;
+		color: $black;
+		float: right;
+		&:focus,
+		&:active,
+		&:hover {
+			background-color: $linkColor;
+			color: $white;
+		}
+	}
+	table {
+		border: none;
+		min-width: 700px;
+		text-align: center;
+		margin: 0 auto;
+		border-radius: 5px;
+		overflow: hidden;
+		margin-bottom: 60px;
+	}
 
-    tr,
-    th {
-        padding: 5px 15px;
-        box-sizing: border-box;
-    }
+	tr,
+	th {
+		padding: 5px 15px;
+		box-sizing: border-box;
+	}
 
-    thead {
-        font-size: 0.9em;
-        color: $white;
-        background-color: $bgcRed;
-    }
+	thead {
+		font-size: 0.9em;
+		color: $white;
+		background-color: $linkColor;
+	}
+	
+	tfoot {
+		font-size: 0.9em;
+		th{
+			border-top: 2px solid $linkColor;
+		}
+	}
 
-    tbody {
-        tr {
-            td {
-                min-height: 30px;
-                &:first-of-type {
-                    min-width: 120px;
-                    text-align: left;
-                    padding-left: 15px;
-                }
-            }
-            &:hover {
-                background-color: $bgcRedHover;
-                .vermais {
-                    display: initial;
-                }
-            }
-        }
-    }
+	tbody {
+		tr {
+			transition: 200ms;
+			&:hover {
+				background-color: $bgcRedHover;
+				.link {
+					display: initial;
+				}
+			}
+			td {
+				min-height: 30px;
+				&:first-of-type {
+					min-width: 120px;
+					text-align: left;
+					padding-left: 15px;
+				}
+				&:last-of-type {
+					text-align: left;
+					padding-right: 15px;
+				}
+			}
+		}
+	}
 }

@@ -1,6 +1,12 @@
 import React from 'react'
 import classes from './profile.module.scss'
 import * as utils from '../../utils/utils'
+import styled, { keyframes } from 'styled-components';
+import { fadeIn} from 'react-animations';
+
+const fadeInAnimation = keyframes`${fadeIn}`
+
+const AnimatedDiv = styled.div`animation: 1s ${fadeInAnimation};`
 
 const profile = (props) => {
     const getAttacks = (attacks) => {
@@ -30,7 +36,7 @@ const profile = (props) => {
             break;
     }
     return (
-        <div className={classes.Profile}>
+        <AnimatedDiv className={classes.Profile}>
             <h1>{pokemon['Name']} {labelInfo} </h1>
             <p> <strong>Generation: </strong> {utils.getGeneration(pokemon['Generation'])}</p>
             <p> <strong>About: </strong> {pokemon['About']}</p>
@@ -42,7 +48,7 @@ const profile = (props) => {
             <ul className={classes.AttackList}>{fastAttacks}</ul>
             <p><strong>Special Attack(s):</strong></p>
             <ul className={classes.AttackList}>{specialAttacks}</ul>
-        </div>
+        </AnimatedDiv>
     )
 }
 

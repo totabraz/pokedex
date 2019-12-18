@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-
-import * as  pokedexActions from "../../store/actions/pokedexActions";
 import { connect } from 'react-redux'
-import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import { NavLink } from "react-router-dom";
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import * as pokedexActions from "../../store/actions/pokedexActions";
 import * as utils from '../../utils/utils'
 import classes from "./Pokedex.module.scss";
+import styled, { keyframes } from 'styled-components';
+import { fadeIn } from 'react-animations';
+
+const fadeInAnimation = keyframes`${fadeIn}`
+
+const AnimatedDiv = styled.div`animation: 1s ${fadeInAnimation};`
 
 class Pokedex extends Component {
 
@@ -48,7 +53,7 @@ class Pokedex extends Component {
                     </p></td>
                     <td>
                         <NavLink
-                            className={classes.vermais}
+                            className={classes.link}
                             to={{
                                 pathname: "/pokemon",
                                 search: 'id=' + pokemon.Number,
@@ -70,13 +75,13 @@ class Pokedex extends Component {
 
     render() {
         let msg = "Pokemons não localizados"
-        if(this.props.error)
+        if (this.props.error)
             console.log(this.props.error)
 
         if (this.props.pokemons)
 
             return (
-                <div className={classes.Pokedex}>
+                <AnimatedDiv className={classes.Pokedex}>
 
                     <table cellSpacing="0" cellPadding="0">
                         <thead>
@@ -93,9 +98,16 @@ class Pokedex extends Component {
                         <tbody>
                             {this.setPokemonsRow(this.props.pokemons)}
                         </tbody>
-                        <tfoot></tfoot>
+                        <tfoot>
+                            <th>Nome</th>
+                            <th>Geração</th>
+                            <th>Tipos</th>
+                            <th>Quantidade<br />de ataques</th>
+                            <th>
+                            </th>
+                        </tfoot>
                     </table>
-                </div>
+                </AnimatedDiv>
             )
         else
             return (
