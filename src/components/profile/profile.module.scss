@@ -1,47 +1,89 @@
-.Profile{
+@import "../../assets/sass/colors";
+
+.Profile + .Profile {
+    margin-top: 60px;
+}
+.Profile {
+    position: relative;
     width: 100%;
     margin: 0 auto;
     padding-left: 15px;
     padding-right: 15px;
     box-sizing: border-box;
-    @media screen and (min-width: 768px) { 
-        width: 700px;
+    padding-bottom: 30px;
+    &:last-of-type:after {
+        content: none;
+
     }
-    .AttackList{
+    &:after {
+        content: "";
+        height: 5px;
+        overflow: hidden;
+        border-radius: 15px;
+        background-color: $borderTransition;
+        position: absolute;
+        bottom: 0;
+        width: calc(100% - 30px);
+        margin-left: 15px;
+    }
+    @media screen and (min-width: 768px) {
+        width: 700px;
+        &:after {
+            width: 50%;
+            margin-left: 25%;
+        }
+    }
+    h1 {
+        position: relative;
+    }
+    .labelInfo {
+        font-size: 12px;
+        background-color: $labelBlue;
+        padding: 2px 8px 3px;
+        color: #ffffff;
+        border-radius: 9px;
+        position: absolute;
+        top: 0px;
+        margin-left: 10px;
+        letter-spacing: 1px;
+    }
+    .next {
+        background-color: $labelGreen;
+    }
+    .AttackList {
         display: flex;
         flex-wrap: wrap;
-        .AttacksName{
+        .AttacksName {
             text-transform: uppercase;
             text-align: center;
             font-weight: bold;
         }
-        li{
+        li {
+            box-shadow: 2px 2px 6px 0px #e8e8e8;
             box-sizing: border-box;
-            padding:15px;
+            padding: 15px;
             margin: 1%;
             width: 100%;
             border-radius: 5px;
             background-color: #f6f6f6;
-            
 
-            @media screen and (min-width: 430px) { 
+            @media screen and (min-width: 430px) {
                 margin: 1%;
                 width: 45%;
             }
 
-            @media screen and (min-width: 768px) { 
+            @media screen and (min-width: 768px) {
                 margin: 1%;
                 width: 30%;
             }
 
-
-            strong{
+            strong {
                 color: #555;
             }
-            p{
+            p {
                 margin: 0;
             }
-            p+p{
+            p + p {
                 font-size: 0.9em;
                 margin-top: 15px;
             }

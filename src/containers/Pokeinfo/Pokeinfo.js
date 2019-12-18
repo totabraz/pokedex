@@ -6,24 +6,61 @@ import Profile from '../../components/profile/profile'
 import classes from './Pokeinfo.module.scss'
 
 class Pokeinfo extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            previousEvolutions: null,
+            initialPokemon: null,
+            nextEvolutions: null,
+        }
+    }
     componentDidMount() {
         if (!this.props.pokemons) {
             this.props.onGetPokemons()
         }
     }
+    
+    getEvolutions = (evolutions, pokemons, label=null) => {
+        const evolutionsList = []
+        evolutions.forEach(evolution => {
+            evolutionsList.push(pokemons.filter(evol =>
+                (evol.Number == evolution.Number)
+            ))
+        })        
+        return evolutionsList.map(evolution =>{
+            return <Profile label={label} key={evolution[0].Number} infos={evolution[0]} />
+        })
+    }
+
+    getNextEvolutions = (pokemon, pokemons) => {
+        if (pokemon['Next evolution(s)']) {
+            return this.getEvolutions(pokemon['Next evolution(s)'], pokemons, 'next')
+        }
+    }
+    getPrevEvolutions = (pokemon, pokemons) => {
+        if (pokemon['Previous evolution(s)']) {
+            return this.getEvolutions(pokemon['Previous evolution(s)'], pokemons, 'prev')
+        }
+    }
+
+
     render() {
-        let profile = null
-        // let pokemonNext = null
-        // let pokemonPrev = null
+        let profile = (<div><p>Erro ao carregar.</p><p>Verifique se foi passado o ID</p><p>Ou se está conectado a internet</p></div>)
+        let nextEvolutions = null
+        let prevEvolutions = null
         if (this.props.pokemons) {
             let params = queryString.parse(this.props.location.search)
             const pokemon = this.props.pokemons.filter(pokemon => pokemon.Number === params.id)
-                profile = <Profile infos={pokemon[0]} /> 
-
+            profile = <Profile infos={pokemon[0]} />
+            console.log(pokemon[0])
+            prevEvolutions = this.getPrevEvolutions(pokemon[0], this.props.pokemons)
+            nextEvolutions = this.getNextEvolutions(pokemon[0], this.props.pokemons)
         }
         return (
             <div className={classes.Pokeinfo}>
                 {profile}
+                {prevEvolutions}
+                {nextEvolutions}
             </div>
         )
     }

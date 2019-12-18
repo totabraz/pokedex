@@ -1,18 +1,35 @@
 @import "../../assets/sass/colors";
 
 .MainHeader {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	.linkhome {
-		cursor: default;
-		display: inline-block;
-	}
-	.mainTitle {
+    display: block;
+    width: 100%;
+    text-align: center;
+    .linkhome {
+        cursor: default;
+		&:visited,
+		&:active,
+		&:hover {
+            color: $titleRed;
+        }
+    }
+    a:visited,
+    a {
+        padding-left: 15px;
+        padding-right: 15px;
 		color: $titleRed;
-		text-align: center;
 		width: 100%;
+		box-sizing: border-box;
 		display: inline-block;
-		text-transform: uppercase;
-	}
+    }
+    a:active,
+    a:focus,
+    a:hover {
+        color: lighten($titleRed, 15%);
+    }
+    .mainTitle {
+        text-align: center;
+        width: 100%;
+        display: inline-block;
+        text-transform: uppercase;
+    }
 }

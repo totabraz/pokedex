@@ -18,18 +18,29 @@ const profile = (props) => {
     const pokemon = props.infos
     const fastAttacks = getAttacks(pokemon['Fast Attack(s)'])
     const specialAttacks = getAttacks(pokemon['Special Attack(s)'])
+    let labelInfo = null
+    switch (props.label) {
+        case "next":
+            labelInfo = (<span className={classes.labelInfo + ' ' + classes.next}>Next evolutions</span>)
+            break
+        case "prev":
+            labelInfo = (<span className={classes.labelInfo}>Past evolutions</span>)
+            break
+        default:
+            break;
+    }
     return (
         <div className={classes.Profile}>
-            <h1>{pokemon['Name']}</h1>
+            <h1>{pokemon['Name']} {labelInfo} </h1>
             <p> <strong>Generation: </strong> {utils.getGeneration(pokemon['Generation'])}</p>
             <p> <strong>About: </strong> {pokemon['About']}</p>
             <p> <strong>Types: </strong> {pokemon['Types'].join(', ')}</p>
             <p> <strong>Resistant: </strong> {pokemon['Resistant'].join(', ')}</p>
             <p> <strong>Weaknesses: </strong> {pokemon['Weaknesses'].join(', ')}</p>
 
-            <p><strong>Fast Attack(s)</strong></p>
+            <p><strong>Fast Attack(s):</strong></p>
             <ul className={classes.AttackList}>{fastAttacks}</ul>
-            <p><strong>Special Attack(s)</strong></p>
+            <p><strong>Special Attack(s):</strong></p>
             <ul className={classes.AttackList}>{specialAttacks}</ul>
         </div>
     )

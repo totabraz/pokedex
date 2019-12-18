@@ -1,20 +1,25 @@
-$redColor: red;
+$redColor: #da3a3a;
 $redColorLight: #cc7c7c;
 $redColorSemiLight: #f6bebe;
 $white: #ffffff;
-
+$grayDark: #d6d6d6;
+$blue: #03a9f4;
+$green: #019e0d;
 
 // Texts
 $titleRed: rgb(175, 2, 2);
+$labelBlue: $blue;
+$labelGreen: $green;
 
 // Links
 $bgcRedHover: $redColorSemiLight;
 
-
 // backgrounds
 $bgcRed: $redColorLight;
 $gbcHeader: rgb(175, 2, 2);
+
 // borders
 $borderColor: $redColor;
 $linkColor: $redColor;
 $linkHoverColor: $white;
+$borderTransition: $grayDark;
