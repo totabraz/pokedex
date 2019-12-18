@@ -22,7 +22,7 @@ class Pokedex extends Component {
         }
     }
 
-    searchTitle = "Search by name"
+    searchTitle = "Name.."
 
     componentDidMount() {
         this.props.onGetPokemons();
@@ -59,7 +59,10 @@ class Pokedex extends Component {
                                 search: 'id=' + pokemon.Number,
                             }}
                             alt={"Details about " + pokemon.Name}
-                            title={"Details about " + pokemon.Name}>Detalhes</NavLink>
+                            title={"Details about " + pokemon.Name}>
+                                <span className={classes.btnInfo}>Detalhes</span>
+                                <span className={classes.btnInfoMobile}>i</span>
+                            </NavLink>
                     </td>
                 </tr>
             )
@@ -99,12 +102,14 @@ class Pokedex extends Component {
                             {this.setPokemonsRow(this.props.pokemons)}
                         </tbody>
                         <tfoot>
-                            <th>Nome</th>
-                            <th>Geração</th>
-                            <th>Tipos</th>
-                            <th>Quantidade<br />de ataques</th>
-                            <th>
-                            </th>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Geração</th>
+                                <th>Tipos</th>
+                                <th>Quantidade<br />de ataques</th>
+                                <th>
+                                </th>
+                            </tr>
                         </tfoot>
                     </table>
                 </AnimatedDiv>
