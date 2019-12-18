@@ -22,7 +22,7 @@ class Pokedex extends Component {
         }
     }
 
-    searchTitle = "Name.."
+    searchTitle = "Search by name"
 
     componentDidMount() {
         this.props.onGetPokemons();
@@ -94,7 +94,9 @@ class Pokedex extends Component {
                                 <th>Tipos</th>
                                 <th>Quantidade<br />de ataques</th>
                                 <th>
-                                    <input alt={this.searchTitle} className={classes.searchInput} placeholder={this.searchTitle} onChange={(event) => { this.setState({ filter: event.target.value }) }} />
+                                    <div className={classes.searchArea}>
+                                    <input alt={this.searchTitle} className={classes.searchInput} title={this.searchTitle} onChange={(event) => { this.setState({ filter: event.target.value }) }} />
+                                    </div>
                                 </th>
                             </tr>
                         </thead>
