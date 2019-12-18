@@ -6,7 +6,7 @@
 	text-align: center;
 	position: fixed;
 	background: white;
-
+    z-index: 99;
 	.linkhome {
 		cursor: default;
 		&:visited,
