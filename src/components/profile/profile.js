@@ -2,13 +2,13 @@ import React from 'react'
 import classes from './profile.module.scss'
 import * as utils from '../../utils/utils'
 import styled, { keyframes } from 'styled-components';
-import { fadeIn} from 'react-animations';
+import { fadeIn } from 'react-animations';
 
 const fadeInAnimation = keyframes`${fadeIn}`
-
 const AnimatedDiv = styled.div`animation: 1s ${fadeInAnimation};`
 
 const profile = (props) => {
+
     const getAttacks = (attacks) => {
         return attacks.map(attack => {
             return (
@@ -25,16 +25,18 @@ const profile = (props) => {
     const fastAttacks = getAttacks(pokemon['Fast Attack(s)'])
     const specialAttacks = getAttacks(pokemon['Special Attack(s)'])
     let labelInfo = null
+
     switch (props.label) {
-        case "next":
-            labelInfo = (<span className={classes.labelInfo + ' ' + classes.next}>Next evolutions</span>)
-            break
         case "prev":
             labelInfo = (<span className={classes.labelInfo}>Past evolutions</span>)
+            break
+        case "next":
+            labelInfo = (<span className={classes.labelInfo + ' ' + classes.next}>Next evolutions</span>)
             break
         default:
             break;
     }
+
     return (
         <AnimatedDiv className={classes.Profile}>
             <h1>{pokemon['Name']} {labelInfo} </h1>

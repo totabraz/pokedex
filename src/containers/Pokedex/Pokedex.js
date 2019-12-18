@@ -60,9 +60,9 @@ class Pokedex extends Component {
                             }}
                             alt={"Details about " + pokemon.Name}
                             title={"Details about " + pokemon.Name}>
-                                <span className={classes.btnInfo}>Detalhes</span>
-                                <span className={classes.btnInfoMobile}>i</span>
-                            </NavLink>
+                            <span className={classes.btnInfo}>Detalhes</span>
+                            <span className={classes.btnInfoMobile}>i</span>
+                        </NavLink>
                     </td>
                 </tr>
             )
@@ -95,7 +95,7 @@ class Pokedex extends Component {
                                 <th>Quantidade<br />de ataques</th>
                                 <th>
                                     <div className={classes.searchArea}>
-                                    <input alt={this.searchTitle} className={classes.searchInput} title={this.searchTitle} onChange={(event) => { this.setState({ filter: event.target.value }) }} />
+                                        <input alt={this.searchTitle} className={classes.searchInput} title={this.searchTitle} onChange={(event) => { this.setState({ filter: event.target.value }) }} />
                                     </div>
                                 </th>
                             </tr>
